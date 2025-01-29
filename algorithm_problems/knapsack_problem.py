@@ -39,11 +39,18 @@
 
 #Formula: knapsack(k,i) = max(Vi + knapsack(k-Wi, i+1),knapsack(k,i+1)) 
 
-def knapsack(values, weights, k, i=0):
+def knapsack(values, weights, k, i=0, lookup=None):
+    lookup = {} if lookup is None else lookup
+
     if i == len(values):
         return 0
     
-    elif weights[i] > k:
+    if weights[i] > k:
         return knapsack(values, weights, k, i+1)
+    
+    elif i in lookup:
+        return lookup[(i,k)]
+
     else:
-        return max(values[i] + knapsack(values, weights, k - weights[k], i+1), knapsack(values, weights, k, i+1))
+        lookup[(i,k)] = max(values[i] + knapsack(values, weights, k - weights[k], i+1), knapsack(values, weights, k, i+1))
+        return lookup[(i,k)]
