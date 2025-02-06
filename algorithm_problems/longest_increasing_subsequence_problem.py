@@ -35,7 +35,7 @@
 
 def lis(arr):
     n = len(arr)
-    dp = [0]*n 
+    dp = [0] * n 
     dp[0] = 1
 
     for i in range(1,n):
@@ -45,6 +45,6 @@ def lis(arr):
             if arr[j] < arr[i] and dp[j] > max_len:
                 max_len = dp[j]
 
-        dp[i] = 1+max_len
+        dp[i] = 1 + max_len
 
     return max(dp)
