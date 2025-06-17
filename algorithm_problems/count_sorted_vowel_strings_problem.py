@@ -24,4 +24,18 @@
 # Return type: int
 
 def count(n):
-    pass
+    NB_VOWELS = 5
+    previous = [1] * NB_VOWELS
+    current = [0] * NB_VOWELS
+    
+    for i in range(1, n):
+        current[0] = previous[0] + previous[1] + previous[2] + previous[3] + previous[4]
+        current[1] = previous[1] + previous[2] + previous[3] + previous[4]
+        current[2] = previous[2] + previous[3] + previous[4]
+        current[3] = previous[3] + previous[4]
+        current[4] = previous[4]
+        
+        for j in range(NB_VOWELS):
+            previous[j] = current[j]
+            
+    return sum(previous)
