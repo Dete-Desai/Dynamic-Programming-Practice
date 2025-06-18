@@ -23,6 +23,8 @@
 
 # Return type: int
 
+# T(n, m) = O(1)
+# S(n, m) = O(n)
 def count(n):
     NB_VOWELS = 5
     previous = [1] * NB_VOWELS
