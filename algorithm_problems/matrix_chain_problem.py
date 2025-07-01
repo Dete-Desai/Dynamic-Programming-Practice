@@ -51,5 +51,8 @@
 # matrices[i][1] = number of columns of the matrix i 
 # matrices[i][1] = matrices[i+1][0]
 
+# T(n) = O(n^3)
+# S(n) = O(n^2)
+
 def chain(matrices):
     pass
